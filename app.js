@@ -311,7 +311,7 @@ function handleQuickReply(senderID, quickReply, messageId) {
             userService.newsletterSettings(function (updated) {
                 if (updated) {
                     fbService.sendTextMessage(senderID, "Thank you for subscribing!" +
-                        "If you want to usubscribe just write 'unsubscribe from newsletter'");
+                        "If you want to unsubscribe just write 'unsubscribe from newsletter'");
                 } else {
                     fbService.sendTextMessage(senderID, "Newsletter is not available at this moment." +
                         "Try again later!");
@@ -334,7 +334,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
 
             //ask what user wants to do next
             setTimeout(function() {
-                let responseText = "Can you please refrain your question or click the button to talk to a live agent. " +
+                let responseText = "Can you please reframe your question or click the button to talk to a live agent. " +
                     "I'm just a bot.";
 
                 let replies = [
@@ -355,7 +355,7 @@ function handleDialogFlowAction(sender, action, messages, contexts, parameters) 
         case "unsubscribe":
             userService.newsletterSettings(function(updated) {
                 if (updated) {
-                    fbService.sendTextMessage(sender, "You're unsubscribed. You can always subscribe back!");
+                    fbService.sendTextMessage(sender, "You're unsubscribed. You can always subscribe again later!");
                 } else {
                     fbService.sendTextMessage(sender, "Newsletter is not available at this moment." +
                         "Try again later!");
